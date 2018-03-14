@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 stty sane
 echo /tmp/create_user_headnode.log.$$

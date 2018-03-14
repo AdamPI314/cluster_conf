@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 stty sane
 echo /tmp/nfs_conf.log.$$ > /tmp/nfs_conf.log.$$ 2>&1
@@ -11,11 +11,11 @@ if ! grep -q "${pattern1}" /etc/exports; then
     sudo echo $str1 >> /etc/exports | xargs >> /tmp/nfs_conf.log.$$ 2>&1
 fi
 
-str2="/hdd4t *(rw,sync)"
-pattern2="\/hdd4t \*(rw,sync)"
-if ! grep -q "${pattern2}" /etc/exports; then
-    sudo echo $str2 >> /etc/exports | xargs >> /tmp/nfs_conf.log.$$ 2>&1
-fi
+# str2="/hdd4t *(rw,sync)"
+# pattern2="\/hdd4t \*(rw,sync)"
+# if ! grep -q "${pattern2}" /etc/exports; then
+#     sudo echo $str2 >> /etc/exports | xargs >> /tmp/nfs_conf.log.$$ 2>&1
+# fi
 
 # share /home directory
 str3="/home *(rw,sync)"
