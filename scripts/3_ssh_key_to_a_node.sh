@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Administrator username and password on the destination node
-ADMIN_USERNAME=$1
-NODE_IP=$2
+NODE_IP=$1
+ADMIN_USERNAME=$2
 
 # update ssh config file to ignore unknown host
 if ! [ -d ~/.ssh ]; then
