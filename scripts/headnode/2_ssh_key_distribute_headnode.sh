@@ -7,6 +7,10 @@ date > /tmp/ssh_key_distribute.log.$$ 2>&1
 whoami >> /tmp/ssh_key_distribute.log.$$ 2>&1
 echo $@ >> /tmp/ssh_key_distribute.log.$$ 2>&1
 
+# Administrator username and password
+ADMIN_USERNAME=$1
+ADMIN_PASSWORD=$2
+
 # Parameters
 MASTER_NAME="headnode"
 #MASTER_IP="192.168.1.2"
@@ -16,9 +20,6 @@ NUM_OF_VM=1
 # array of worker node names, worker node ip
 WORKER_NAME_A=("node1")
 WORKER_IP_A=("128.138.143.223")
-
-ADMIN_USERNAME="sohr"
-ADMIN_PASSWORD="sohr666888314"
 
 # Update master node
 pattern1="$MASTER_IP $MASTER_NAME"
