@@ -18,8 +18,8 @@ MASTER_IP="128.138.143.234"
 # number of computer nodes
 NUM_OF_VM=2
 # array of worker node names, worker node ip
-WORKER_NAME_A=("node1","node2")
-WORKER_IP_A=("128.138.143.235","128.138.143.205")
+WORKER_NAME_A=("node1" "node2")
+WORKER_IP_A=("128.138.143.235" "128.138.143.205")
 
 # Update master node
 pattern1="$MASTER_IP $MASTER_NAME"
