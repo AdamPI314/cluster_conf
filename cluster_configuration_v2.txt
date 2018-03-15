@@ -20,7 +20,8 @@ sudo blkid
 Next you need to modify your /etc/fstab file to point to the desired mount point. Run sudo xdg-open /etc/fstab and add a line or modify the line referencing the partition.
 An example line:
 UUID="xxxx-xxxx"    /media/Radi ext4    defaults,user,auto  0   1
-Then reboot your computer or run sudo mount -a
+Then reboot your computer or run sudo mount –a
+Note it is important to mount it without execution permission
 UUID=c491c72c-e5fc-48b8-8cc1-5a5187bdc0ea /ssd2t ext4 rw,suid,dev,auto,user,async,exec 0 0
 
 Network File System (NFS) setup
