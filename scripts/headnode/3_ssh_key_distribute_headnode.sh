@@ -29,8 +29,6 @@ else
    echo $pattern1 >> /etc/hosts
 fi
 
-echo $MASTER_IP $MASTER_NAME > /tmp/hosts.$$
-
 # Update ssh config file to ignore unknown host
 # Note all settings are for sohr, NOT root
 
@@ -60,10 +58,8 @@ do
       echo ${pattern2} >> /etc/hosts
    fi
 
-   if [ -f /tmp/hosts.$$ ]
-   then
-      rm /tmp/hosts.$$
-   fi
+   # for compute node
+   head -n 9 /etc/hosts > /tmp/hosts.$$
    # only headnode and current node
    echo $MASTER_IP $MASTER_NAME > /tmp/hosts.$$
    echo ${pattern2} >> /tmp/hosts.$$
