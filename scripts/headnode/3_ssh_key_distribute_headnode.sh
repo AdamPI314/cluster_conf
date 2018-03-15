@@ -83,8 +83,7 @@ do
    echo "updates /etc/hosts on current node... start" >> /tmp/ssh_key_distribute.log.$$ 2>&1
    # only the first 9 lines of /etc/hosts will be kept, dump rest of that file
    sudo -u $ADMIN_USERNAME ssh $ADMIN_USERNAME@${WORKER_IP_A[$i]} >> /tmp/ssh_key_distribute.log.$$ 2>&1 <<'ENDSSH1'
-   sudo sh -c "head -n 0 /etc/hosts > /etc/hosts"
-   sudo sh -c "cat /tmp/hosts >> /etc/hosts"
+   sudo sh -c "cat /tmp/hosts > /etc/hosts"
 ENDSSH1
 
    i=`expr $i + 1`
