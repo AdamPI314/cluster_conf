@@ -5,6 +5,9 @@ echo /tmp/nfs_conf.log.$$ > /tmp/nfs_conf.log.$$ 2>&1
 #sudo blkid to see UUID of disk/folder
 #sudo vim /etc/exports, add two lines
 
+# remount /ssd2t with execution permission
+# sudo mount -o remount -o exec /ssd2t
+
 str1="/ssd2t *(rw,sync)"
 pattern1="\/ssd2t \*(rw,sync)"
 if ! grep -q "${pattern1}" /etc/exports; then

@@ -1,4 +1,4 @@
-Hostname
+﻿Hostname
 node1
 password
 sohr666888314
@@ -21,7 +21,7 @@ Next you need to modify your /etc/fstab file to point to the desired mount point
 An example line:
 UUID="xxxx-xxxx"    /media/Radi ext4    defaults,user,auto  0   1
 Then reboot your computer or run sudo mount -a
-UUID=c491c72c-e5fc-48b8-8cc1-5a5187bdc0ea /ssd2t ext4 defaults,user,auto 0 0
+UUID=c491c72c-e5fc-48b8-8cc1-5a5187bdc0ea /ssd2t ext4 rw,suid,dev,auto,user,async,exec 0 0
 
 Network File System (NFS) setup
 Headnode
