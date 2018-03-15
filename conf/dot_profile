@@ -13,6 +13,8 @@ alias cuj='cd /d/Projects/java'
 alias cda='cd /d/Github/Algorithm'
 alias cdg='cd /d/Projects/Go'
 
+alias cds='cd /ssd2t/storage'
+
 function scpfheadnode()
 {
 	scp -r -p Invictus@128.138.143.234:$1 $2	;
