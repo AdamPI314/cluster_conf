@@ -66,7 +66,6 @@ do
    pattern2="${WORKER_IP_A[$i]} ${WORKER_NAME_A[$i]}"
    if grep -q "${pattern2}" /etc/hosts; then
       echo $pattern2 found
-      cat /etc/hosts
    else
       echo ${pattern2} >> /etc/hosts
    fi
