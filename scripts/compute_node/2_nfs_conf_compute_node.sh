@@ -24,13 +24,13 @@ fi
 #     sudo echo $str2 >> /etc/fstab | xargs >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
 # fi
 
-str3="headnode:/home /home nfs"
-pattern3="headnode:\/home \/home nfs"
-if grep -q "${pattern3}" /etc/fstab; then
-    echo $str3 found
-else
-    sudo echo $str3 >> /etc/fstab | xargs >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
-fi
+# str3="headnode:/home /home nfs"
+# pattern3="headnode:\/home \/home nfs"
+# if grep -q "${pattern3}" /etc/fstab; then
+#     echo $str3 found
+# else
+#     sudo echo $str3 >> /etc/fstab | xargs >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
+# fi
 
 if ! [ -d /ssd2t ]; then
 	sudo mkdir /ssd2t >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
@@ -40,9 +40,9 @@ fi
 # 	sudo mkdir /hdd4t >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
 # fi
 
-if ! [ -d /home ]; then
-	sudo mkdir /home >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
-fi
+# if ! [ -d /home ]; then
+# 	sudo mkdir /home >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
+# fi
 
 sudo mount -a >> /tmp/nfs_conf_compute_node.log.$$ 2>&1
 
