@@ -71,15 +71,15 @@ do
    fi
 
    # for compute node
-   head -n 9 /etc/hosts > /tmp/hosts
+   head -n 9 /etc/hosts > /tmp/hosts.$$
    # only headnode and current node
-   echo $MASTER_IP $MASTER_NAME >> /tmp/hosts
-   echo ${pattern2} >> /tmp/hosts
+   echo $MASTER_IP $MASTER_NAME >> /tmp/hosts.$$
+   echo ${pattern2} >> /tmp/hosts.$$
    echo 'I update host - '${WORKER_NAME_A[$i]} >> /tmp/ssh_key_distribute.log.$$ 2>&1
    sudo -u $ADMIN_USERNAME sh -c "sshpass -p '$ADMIN_PASSWORD' ssh-copy-id -f ${ADMIN_USERNAME}@${WORKER_IP_A[$i]}"
    # updates /etc/hosts on current node
    echo "will updates /etc/hosts on current node..." >> /tmp/ssh_key_distribute.log.$$ 2>&1
-   sudo -u $ADMIN_USERNAME scp /tmp/hosts $ADMIN_USERNAME@${WORKER_IP_A[$i]}:/tmp >> /tmp/ssh_key_distribute.log.$$ 2>&1
+   sudo -u $ADMIN_USERNAME scp /tmp/hosts.$$ $ADMIN_USERNAME@${WORKER_IP_A[$i]}:/tmp/hosts >> /tmp/ssh_key_distribute.log.$$ 2>&1
    echo "updates /etc/hosts on current node... start" >> /tmp/ssh_key_distribute.log.$$ 2>&1
    # only the first 9 lines of /etc/hosts will be kept, dump rest of that file
    sudo -u $ADMIN_USERNAME ssh $ADMIN_USERNAME@${WORKER_IP_A[$i]} >> /tmp/ssh_key_distribute.log.$$ 2>&1 <<'ENDSSH1'
