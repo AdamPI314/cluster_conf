@@ -1,8 +1,8 @@
 #!/bin/bash
 
 stty sane
-echo /tmp/create_user_headnode.log.$$
-echo /tmp/create_user_headnode.log.$$ > /tmp/create_user_headnode.log.$$ 2>&1
+echo /tmp/create_user.log.$$
+echo /tmp/create_user.log.$$ > /tmp/create_user.log.$$ 2>&1
 
 USER_NAME=$1
 USER_PASSWD=$2
