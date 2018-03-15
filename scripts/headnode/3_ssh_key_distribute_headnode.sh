@@ -71,9 +71,8 @@ do
    fi
 
    # for compute node
-   head -n 9 /etc/hosts > /tmp/hosts.$$
    # only headnode and current node
-   echo $MASTER_IP $MASTER_NAME >> /tmp/hosts.$$
+   echo $MASTER_IP $MASTER_NAME > /tmp/hosts.$$
    echo ${pattern2} >> /tmp/hosts.$$
    echo 'I update host - '${WORKER_NAME_A[$i]} >> /tmp/ssh_key_distribute.log.$$ 2>&1
    sudo -u $ADMIN_USERNAME sh -c "sshpass -p '$ADMIN_PASSWORD' ssh-copy-id -f ${ADMIN_USERNAME}@${WORKER_IP_A[$i]}"
