@@ -1,0 +1,25 @@
+alias Invictus='ssh invictus@128.138.143.161'
+alias headnode='ssh Invictus@128.138.143.234'
+
+alias cus='cd /d/Github/SOHR'
+alias cusi='cd /d/Github/SOHR_DATA/input'
+alias cuso='cd /d/Github/SOHR_DATA/output'
+alias cucc='cd /d/Github/SOHR/projects/catalytic_cycle'
+alias cure='cd /d/Github/SOHR/projects/rare_event/codes'
+alias cupt='cd /d/Github/SOHR/projects/PhD_thesis'
+alias cucf='cd /d/Github/SOHR/projects/combustion_fluctuation'
+alias cusa='cd /d/Github/SOHR/projects/sensitivity_analysis'
+alias cuj='cd /d/Projects/java'
+alias cda='cd /d/Github/Algorithm'
+alias cdg='cd /d/Projects/Go'
+
+function scpfheadnode()
+{
+	scp -r -p Invictus@128.138.143.234:$1 $2	;
+}
+
+function scp2headnode()
+{
+	scp -r -p $1 Invictus@128.138.143.234:$2 ;
+}
+
