@@ -11,15 +11,27 @@ echo $@ >> /tmp/ssh_key_distribute.log.$$ 2>&1
 ADMIN_USERNAME=$1
 ADMIN_PASSWORD=$2
 
+# Name and IP from file
+readarray NAME_A < ../../conf/nodes_name.txt
+readarray IP_A < ../../conf/nodes_ip.txt
+
 # Parameters
-MASTER_NAME="headnode"
-MASTER_IP="128.138.143.234"
+MASTER_NAME=${NAME_A[0]}
+MASTER_IP=${IP_A[0]}
 
 # number of computer nodes
-NUM_OF_VM=2
+NUM_OF_VM=$((${#NAME_A[@]}-1))
 # array of worker node names, worker node ip
-WORKER_NAME_A=("node1" "node2")
-WORKER_IP_A=("128.138.143.235" "128.138.143.205")
+# slice from 1 to the end of the array
+WORKER_NAME_A=("${NAME_A[@]:1}")   
+WORKER_IP_A=("${IP_A[@]:1}")
+
+# for name in ${WORKER_NAME_A[@]}; do
+#     echo $name
+# done
+# for ip in ${WORKER_IP_A[@]}; do
+#     echo $ip
+# done
 
 # Update master node
 pattern1="$MASTER_IP $MASTER_NAME"
