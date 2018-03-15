@@ -12,8 +12,8 @@ ADMIN_USERNAME=$1
 ADMIN_PASSWORD=$2
 
 # Name and IP from file
-readarray NAME_A <<< ../../conf/nodes_name.txt
-readarray IP_A <<< ../../conf/nodes_ip.txt
+readarray NAME_A <<<../../conf/nodes_name.txt
+readarray IP_A <<<../../conf/nodes_ip.txt
 
 # Parameters
 MASTER_NAME=${NAME_A[0]}
