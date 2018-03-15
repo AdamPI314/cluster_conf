@@ -36,7 +36,7 @@ echo $MASTER_IP $MASTER_NAME > /tmp/hosts.$$
 if ! [ -d /home/$ADMIN_USERNAME/.ssh ]; then
     sudo -u $ADMIN_USERNAME sh -c "mkdir /home/$ADMIN_USERNAME/.ssh/"
 fi
-sudo -u $ADMIN_USERNAME sh -c "echo Host worker\* > /home/$ADMIN_USERNAME/.ssh/config; echo StrictHostKeyChecking no >> /home/$ADMIN_USERNAME/.ssh/config; echo UserKnownHostsFile=/dev/null >> /home/$ADMIN_USERNAME/.ssh/config"
+sudo -u $ADMIN_USERNAME sh -c "echo Host node\* > /home/$ADMIN_USERNAME/.ssh/config; echo StrictHostKeyChecking no >> /home/$ADMIN_USERNAME/.ssh/config; echo UserKnownHostsFile=/dev/null >> /home/$ADMIN_USERNAME/.ssh/config"
 
 # Generate a set of sshkey under /home/sohr/.ssh if there is not one yet
 if ! [ -f /home/$ADMIN_USERNAME/.ssh/id_rsa ]; then
