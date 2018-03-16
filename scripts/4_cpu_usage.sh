@@ -11,8 +11,8 @@
 # done
 # wait
 
-# print own CPU usage after all spawned processes completed
-top -bn2 -u "$own" | grep "Cpu(s)" | tail -1 | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk -v user=$own, '{print user, 100 - $1"%"}'
+# # print own CPU usage after all spawned processes completed
+# top -bn2 -u "$own" | grep "Cpu(s)" | tail -1 | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk -v user=$own, '{print user, 100 - $1"%"}'
 
 #!/bin/bash
 
