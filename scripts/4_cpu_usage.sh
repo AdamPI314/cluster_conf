@@ -7,11 +7,9 @@ do
     # print other user's CPU usage in parallel but skip own one because
     # spawning many processes will increase our CPU usage significantly
     if [ "$user" = "$own" ]; then continue; fi
-    # (top -b -n 1 -u "$user" | awk -v user="$user" 'NR>7 { sum += $9; } END { print user, sum; }') &
-	top -bn1 -u "$user" | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}'
+        top -bn2 -u "$user" | grep "Cpu(s)" | tail -1 | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk -v user=$user, '{print user 100 - $1"%"}' &
 done
 wait
 
 # print own CPU usage after all spawned processes completed
-# top -b -n 2 -u "$own" | awk -v user=$own 'NR>7 { sum += $9; } END { print user, sum; }'
-top -bn1 -u "$own" | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}'
+top -bn2 -u "$own" | grep "Cpu(s)" | tail -1 | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk -v user=$own, '{print user, 100 - $1"%"}'
