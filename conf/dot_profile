@@ -8,11 +8,11 @@ alias Pople='ssh sbai@pople.tcg.anl.gov'
 alias Linus='ssh sbai@linus.tcg.anl.gov'
 alias Fusion='ssh bais@fusion.lcrc.anl.gov'
 alias Test='ssh sbai@128.138.143.72'
-alias gohn='ssh Invictus@128.138.143.234'
-alias gon1='ssh Invictus@128.138.143.235'
-alias gon2='ssh Invictus@128.138.143.205'
-alias gon3='ssh Invictus@128.138.143.216'
-alias gon4='ssh Invictus@128.138.143.196'
+alias gohn='ssh Invictus@128.138.143.191'
+alias gon1='ssh Invictus@128.138.143.210'
+alias gon2='ssh Invictus@128.138.143.198'
+alias gon3='ssh Invictus@128.138.143.178'
+alias gon4='ssh Invictus@128.138.143.139'
 
 alias cus='cd /d/VS_workspace/CPlusPlus/SOHR'
 alias cusi='cd /d/VS_workspace/CPlusPlus/SOHR_DATA/input'
@@ -28,52 +28,52 @@ alias cdg='cd /d/Projects/Go'
 
 function scpfhn()
 {
-	scp -r -p Invictus@128.138.143.234:$1 $2	;
+	scp -r -p Invictus@128.138.143.191:$1 $2	;
 }
 
 function scp2hn()
 {
-	scp -r -p $1 Invictus@128.138.143.234:$2 ;
+	scp -r -p $1 Invictus@128.138.143.191:$2 ;
 }
 
 function scpfn1()
 {
-	scp -r -p Invictus@128.138.143.235:$1 $2	;
+	scp -r -p Invictus@128.138.143.210:$1 $2	;
 }
 
 function scp2n1()
 {
-	scp -r -p $1 Invictus@128.138.143.235:$2 ;
+	scp -r -p $1 Invictus@128.138.143.210:$2 ;
 }
 
 function scpfn2()
 {
-	scp -r -p Invictus@128.138.143.205:$1 $2	;
+	scp -r -p Invictus@128.138.143.198:$1 $2	;
 }
 
 function scp2n2()
 {
-	scp -r -p $1 Invictus@128.138.143.205:$2 ;
+	scp -r -p $1 Invictus@128.138.143.198:$2 ;
 }
 
 function scpfn3()
 {
-	scp -r -p Invictus@128.138.143.216:$1 $2	;
+	scp -r -p Invictus@128.138.143.178:$1 $2	;
 }
 
 function scp2n3()
 {
-	scp -r -p $1 Invictus@128.138.143.216:$2 ;
+	scp -r -p $1 Invictus@128.138.143.178:$2 ;
 }
 
 function scpfn4()
 {
-	scp -r -p Invictus@128.138.143.196:$1 $2	;
+	scp -r -p Invictus@128.138.143.139:$1 $2	;
 }
 
 function scp2n4()
 {
-	scp -r -p $1 Invictus@128.138.143.196:$2 ;
+	scp -r -p $1 Invictus@128.138.143.139:$2 ;
 }
 
 function scpfromJanus()
