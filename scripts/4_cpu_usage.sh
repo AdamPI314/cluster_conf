@@ -1,13 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 own=$(id -nu)
 
-for user in $(getent passwd | awk -F ":" '{print $1}' | sort -u)
+for user in $(who | awk '{print $1}' | sort -u)
 do
     # print other user's CPU usage in parallel but skip own one because
     # spawning many processes will increase our CPU usage significantly
     if [ "$user" = "$own" ]; then continue; fi
-    (top -b -n 2 -u "$user" | awk -v user=$user 'NR>7 { sum += $9; } END { if (sum > 0.0) print user, sum; }') &
+    (top -b -n 2 -u "$user" | awk -v user="$user" 'NR>7 { sum += $9; } END { print user, sum; }') &
 done
 wait
 
