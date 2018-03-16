@@ -129,6 +129,7 @@ alias cure='cd ~/Documents/spring_2018_boulder/SRC_EXE_DIR/SOHR/projects/rare_ev
 alias cupt='cd ~/Documents/spring_2018_boulder/SRC_EXE_DIR/SOHR/projects/PhD_thesis/SHIRONG_THESIS'
 alias cucf='cd ~/Documents/spring_2018_boulder/SRC_EXE_DIR/SOHR/projects/combustion_fluctuation'
 alias cusa='cd ~/Documents/spring_2018_boulder/SRC_EXE_DIR/SOHR/projects/sensitivity_analysis'
+alias cdnfs='cd /ssd2t/storage/shirong/spring_2018_boulder/SRC_EXE_DIR'
 alias cdl='cd $(ls -d */ | cut -f1 -d '/'| tail --lines=1)'
 alias rlf='readlink -f $(ls -d */ | cut -f1 -d '/'| tail --lines=1)'
 
