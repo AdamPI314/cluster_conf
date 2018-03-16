@@ -1,27 +1,155 @@
+alias meghan='ssh meghantron@drevil.colorado.edu'
+alias Gold='ssh sbai@128.138.143.114'
 alias Invictus='ssh invictus@128.138.143.161'
-alias headnode='ssh Invictus@128.138.143.234'
 
-alias cus='cd /d/Github/SOHR'
-alias cusi='cd /d/Github/SOHR_DATA/input'
-alias cuso='cd /d/Github/SOHR_DATA/output'
-alias cucc='cd /d/Github/SOHR/projects/catalytic_cycle'
-alias cure='cd /d/Github/SOHR/projects/rare_event/codes'
-alias cupt='cd /d/Github/SOHR/projects/PhD_thesis'
-alias cucf='cd /d/Github/SOHR/projects/combustion_fluctuation'
-alias cusa='cd /d/Github/SOHR/projects/sensitivity_analysis'
-alias cuj='cd /d/Projects/java'
-alias cda='cd /d/Github/Algorithm'
+alias Janus='ssh shba5583@login.rc.colorado.edu'
+alias GoldFinger='ssh sbai@128.138.143.114'
+alias Pople='ssh sbai@pople.tcg.anl.gov'
+alias Linus='ssh sbai@linus.tcg.anl.gov'
+alias Fusion='ssh bais@fusion.lcrc.anl.gov'
+alias Test='ssh sbai@128.138.143.72'
+alias gohn='ssh Invictus@128.138.143.234'
+alias gon1='ssh Invictus@128.138.143.235'
+alias gon2='ssh Invictus@128.138.143.205'
+alias gon3='ssh Invictus@128.138.143.216'
+alias gon4='ssh Invictus@128.138.143.196'
+
+alias cus='cd /d/VS_workspace/CPlusPlus/SOHR'
+alias cusi='cd /d/VS_workspace/CPlusPlus/SOHR_DATA/input'
+alias cuso='cd /d/VS_workspace/CPlusPlus/SOHR_DATA/output'
+alias cucc='cd /d/VS_workspace/CPlusPlus/SOHR/projects/catalytic_cycle'
+alias cucf='cd /d/VS_workspace/CPlusPlus/SOHR/projects/combustion_fluctuation'
+alias cure='cd /d/VS_workspace/CPlusPlus/SOHR/projects/rare_event'
+alias cupt='cd /d/VS_workspace/CPlusPlus/SOHR/projects/PhD_thesis/SHIRONG_THESIS'
+alias cusa='cd /d/VS_workspace/CPlusPlus/SOHR/projects/sensitivity_analysis'
+alias cud='cd /d/Projects/java'
+alias cda='cd /d/VS_workspace/Algorithm'
 alias cdg='cd /d/Projects/Go'
 
-alias cds='cd /ssd2t/storage'
-
-function scpfheadnode()
+function scpfhn()
 {
 	scp -r -p Invictus@128.138.143.234:$1 $2	;
 }
 
-function scp2headnode()
+function scp2hn()
 {
 	scp -r -p $1 Invictus@128.138.143.234:$2 ;
+}
+
+function scpfn1()
+{
+	scp -r -p Invictus@128.138.143.235:$1 $2	;
+}
+
+function scp2n1()
+{
+	scp -r -p $1 Invictus@128.138.143.235:$2 ;
+}
+
+function scpfn2()
+{
+	scp -r -p Invictus@128.138.143.205:$1 $2	;
+}
+
+function scp2n2()
+{
+	scp -r -p $1 Invictus@128.138.143.205:$2 ;
+}
+
+function scpfn3()
+{
+	scp -r -p Invictus@128.138.143.216:$1 $2	;
+}
+
+function scp2n3()
+{
+	scp -r -p $1 Invictus@128.138.143.216:$2 ;
+}
+
+function scpfn4()
+{
+	scp -r -p Invictus@128.138.143.196:$1 $2	;
+}
+
+function scp2n4()
+{
+	scp -r -p $1 Invictus@128.138.143.196:$2 ;
+}
+
+function scpfromJanus()
+{
+	scp -r -p shba5583@login.rc.colorado.edu:$1 $2	;
+}
+
+function scp2Janus()
+{
+	scp -r -p $1 shba5583@login.rc.colorado.edu:$2 ;
+}
+
+#	GoldFinger
+function scpfromGF()
+{
+	scp -r -p sbai@128.138.143.114:$1 $2 ;
+}
+
+function scp2GF()
+{
+	scp -r -p $1 sbai@128.138.143.114:$2 ;
+}
+
+#	Invictus	
+function scpfromIV()
+{
+	scp -r -p invictus@128.138.143.161:$1 $2 ;
+}
+
+#	transfer files from filename list on Invictus, ~/scratch/filename.txt
+function scpfromIVfiles()
+{
+	HOST=invictus@128.138.143.161
+	
+	DEST_DIR="~/scratch"
+	SRC_DIR="/home/invictus/Documents/summer_2017_boulder/SRC_EXE_DIR/SOHR/cplusplus_lib/output"
+	
+	FILE_LIST=filename.txt	
+	TARGET_FILE=files.tar
+	
+	ssh $HOST bash -c "'
+	cd $SRC_DIR
+	tar -cvf $DEST_DIR/$TARGET_FILE --files-from $DEST_DIR/$FILE_LIST
+	echo "File compression done"
+	'"
+	
+	scp -r -p invictus@128.138.143.161:$DEST_DIR/$TARGET_FILE . ;
+	tar -xvf $TARGET_FILE
+	rm -rf $TARGET_FILE
+}
+
+function scp2IV()
+{
+	scp -r -p $1 invictus@128.138.143.161:$2 ;
+}
+
+
+#	Argonne Pople
+function scpfromPople()
+{
+	scp -r -p sbai@pople.tcg.anl.gov:$1 $2 ;
+}
+
+function scp2Pople()
+{
+	scp -r -p $1 sbai@pople.tcg.anl.gov:$2 ;
+}
+
+#	Argonne	Linus 
+function scpfromLinus()
+{
+	scp -r -p sbai@linus.tcg.anl.gov:$1 $2 ;
+}
+
+function scp2Linus()
+{
+	scp -r -p $1 sbai@linus.tcg.anl.gov:$2 ;
 }
 
