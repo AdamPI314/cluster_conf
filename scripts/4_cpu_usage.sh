@@ -18,7 +18,7 @@
 
 # for user in $(who | awk '{print $1}' | sort -u)
 for user in $(ps aux | awk '{ print $1 }' | sed '1 d' | sort -u | uniq); do
-    if [[ getent group SkodjeLab | grep &>/dev/null "\b${user}\b" || getent group sudo | grep &>/dev/null "\b${user}\b"]]; then
+    if [[ ( getent group SkodjeLab | grep &>/dev/null "\b${user}\b" ) || ( getent group sudo | grep &>/dev/null "\b${user}\b" ) ]]; then
             # print other user's CPU usage in parallel but skip own one because
             # spawning many processes will increase our CPU usage significantly
             (ncpu=$(lscpu | grep "^CPU(s)" | awk '{print $2}'); \
